@@ -16,7 +16,7 @@ export default function CardImovel({ imovel }: { imovel: ImovelComMidia }) {
         {capa ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            src={capa.url_thumb ?? capa.url}
+            src={capa.url}
             alt={imovel.nome}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
@@ -43,7 +43,7 @@ export default function CardImovel({ imovel }: { imovel: ImovelComMidia }) {
           {imovel.tipo}
         </p>
         <h3 className="text-base font-bold mb-1 line-clamp-1" style={{ color: '#1a1a1a' }}>
-          {imovel.nome}
+          <span style={{ color: '#8a8272', fontWeight: 600 }}>{imovel.codigo}</span> {imovel.nome}
         </h3>
         {localizacao && (
           <p className="text-sm mb-3" style={{ color: '#6b6353' }}>
