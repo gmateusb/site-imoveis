@@ -5,7 +5,7 @@ import CardImovel from '../components/CardImovel'
 export const revalidate = 60
 
 export default async function Home() {
-  const imoveis = await buscarImoveisPublicos()
+  const { imoveis, erro } = await buscarImoveisPublicos()
   const destaques = imoveis.slice(0, 6)
 
   return (
@@ -48,7 +48,11 @@ export default async function Home() {
           </Link>
         </div>
 
-        {destaques.length === 0 ? (
+        {erro ? (
+          <p className="text-sm" style={{ color: '#c14444' }}>
+            Erro ao carregar imóveis: {erro}
+          </p>
+        ) : destaques.length === 0 ? (
           <p className="text-sm" style={{ color: '#8a8272' }}>
             Nenhum imóvel disponível no momento.
           </p>

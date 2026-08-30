@@ -17,7 +17,9 @@ export type FiltrosImoveis = {
   busca?: string
 }
 
-export async function buscarImoveisPublicos(filtros: FiltrosImoveis = {}): Promise<ImovelComMidia[]> {
+export async function buscarImoveisPublicos(
+  filtros: FiltrosImoveis = {}
+): Promise<{ imoveis: ImovelComMidia[]; erro: string | null }> {
   let query = supabase.from('imoveis').select(CAMPOS_IMOVEL).order('created_at', { ascending: false })
 
   if (filtros.tipo) query = query.eq('tipo', filtros.tipo)
@@ -29,9 +31,9 @@ export async function buscarImoveisPublicos(filtros: FiltrosImoveis = {}): Promi
   const { data, error } = await query
   if (error) {
     console.error('Erro ao buscar imóveis:', error.message)
-    return []
+    return { imoveis: [], erro: error.message }
   }
-  return (data as unknown as ImovelComMidia[]) || []
+  return { imoveis: (data as unknown as ImovelComMidia[]) || [], erro: null }
 }
 
 export async function buscarImovelPorId(id: string): Promise<ImovelComMidia | null> {

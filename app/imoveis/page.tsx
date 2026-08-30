@@ -11,7 +11,7 @@ export default async function ListaImoveis({
   searchParams: Promise<{ tipo?: string; cidade?: string; disponivelPara?: string; busca?: string }>
 }) {
   const filtros = await searchParams
-  const [imoveis, cidades, tipos] = await Promise.all([
+  const [{ imoveis, erro }, cidades, tipos] = await Promise.all([
     buscarImoveisPublicos(filtros),
     buscarCidadesDisponiveis(),
     buscarTiposDisponiveis(),
@@ -28,7 +28,11 @@ export default async function ListaImoveis({
       </Suspense>
 
       <div className="mt-8">
-        {imoveis.length === 0 ? (
+        {erro ? (
+          <p className="text-sm" style={{ color: '#c14444' }}>
+            Erro ao carregar imóveis: {erro}
+          </p>
+        ) : imoveis.length === 0 ? (
           <p className="text-sm" style={{ color: '#8a8272' }}>
             Nenhum imóvel encontrado com esses filtros.
           </p>
