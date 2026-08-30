@@ -20,7 +20,7 @@ export type FiltrosImoveis = {
 export async function buscarImoveisPublicos(
   filtros: FiltrosImoveis = {}
 ): Promise<{ imoveis: ImovelComMidia[]; erro: string | null }> {
-  let query = supabase.from('imoveis').select(CAMPOS_IMOVEL).order('created_at', { ascending: false })
+  let query = supabase.from('imoveis').select(CAMPOS_IMOVEL).order('codigo', { ascending: false })
 
   if (filtros.tipo) query = query.eq('tipo', filtros.tipo)
   if (filtros.cidade) query = query.eq('cidade', filtros.cidade)
