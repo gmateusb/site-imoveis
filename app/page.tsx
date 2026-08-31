@@ -19,11 +19,10 @@ export default async function Home() {
 
   return (
     <>
-      <div className="p-3 pt-3 sm:p-4 sm:pt-5">
-        <div className="relative w-full rounded-3xl overflow-hidden" style={{ height: '92vh', minHeight: 560 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/hero-bombinhas.jpg" alt="Bombinhas" className="absolute inset-0 w-full h-full object-cover" />
-          <div
+      <div className="relative w-full overflow-hidden" style={{ height: '100vh', minHeight: 560 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/hero-bombinhas.jpg" alt="Bombinhas" className="absolute inset-0 w-full h-full object-cover" />
+        <div
             className="absolute inset-0"
             style={{
               background:
@@ -96,7 +95,6 @@ export default async function Home() {
               </div>
             </Link>
           )}
-        </div>
       </div>
 
       <section className="max-w-6xl mx-auto px-5 py-14">
