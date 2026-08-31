@@ -2,38 +2,49 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <>
-      <Link
-        href="/"
-        aria-label="Bombinhas Imóveis"
-        className="fixed top-4 left-4 sm:top-5 sm:left-5 z-50 flex items-center justify-center w-9 h-9 rounded-full text-sm font-black transition-transform hover:scale-105"
-        style={{ backgroundColor: 'var(--accent)', color: '#ffffff' }}
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center px-3 w-full sm:w-auto">
+      <div
+        className="flex items-center gap-1 p-1.5 rounded-2xl backdrop-blur-md w-full sm:w-auto"
+        style={{ backgroundColor: 'rgba(21, 19, 15, 0.6)', border: '1px solid rgba(255,255,255,0.12)' }}
       >
-        B
-      </Link>
-
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center">
-        <div
-          className="flex items-center gap-4 px-4 py-2 rounded-full backdrop-blur-md"
-          style={{ backgroundColor: 'rgba(21, 19, 15, 0.55)', border: '1px solid rgba(255,255,255,0.12)' }}
+        <Link
+          href="/"
+          aria-label="Bombinhas Imóveis"
+          className="flex items-center justify-center w-9 h-9 rounded-xl text-sm font-black shrink-0"
+          style={{ backgroundColor: '#ffffff', color: 'var(--accent)' }}
         >
-          <nav className="flex items-center gap-4 text-xs font-medium text-white/85">
-            <Link href="/imoveis" className="hover:text-white transition-colors">
-              Imóveis
-            </Link>
-            <Link href="/sobre" className="hover:text-white transition-colors">
-              Contato
-            </Link>
-          </nav>
+          B
+        </Link>
+
+        <nav className="flex items-center gap-0.5 px-1 flex-1 justify-center sm:flex-initial">
           <Link
             href="/imoveis"
-            className="text-xs font-semibold px-3 py-1.5 rounded-full transition-colors hover:brightness-95"
-            style={{ backgroundColor: '#ffffff', color: '#15130f' }}
+            className="px-3 py-2 rounded-xl text-xs font-medium text-white/85 hover:bg-white/10 transition-colors"
           >
-            Ver imóveis
+            Imóveis
           </Link>
-        </div>
-      </header>
-    </>
+          <Link
+            href="/sobre"
+            className="px-3 py-2 rounded-xl text-xs font-medium text-white/85 hover:bg-white/10 transition-colors"
+          >
+            Sobre nós
+          </Link>
+          <Link
+            href="/sobre"
+            className="px-3 py-2 rounded-xl text-xs font-medium text-white/85 hover:bg-white/10 transition-colors"
+          >
+            Contato
+          </Link>
+        </nav>
+
+        <Link
+          href="/imoveis?disponivelPara=locacao_temporada"
+          className="px-4 py-2 rounded-xl text-xs font-semibold shrink-0 transition-colors hover:brightness-95"
+          style={{ backgroundColor: '#ffffff', color: '#15130f' }}
+        >
+          Temporada
+        </Link>
+      </div>
+    </header>
   )
 }
