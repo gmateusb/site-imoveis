@@ -10,10 +10,11 @@ export default function Header() {
         <Link
           href="/"
           aria-label="Bombinhas Imóveis"
-          className="flex items-center justify-center w-9 h-9 rounded-xl text-sm font-black shrink-0"
-          style={{ backgroundColor: '#ffffff', color: 'var(--accent)' }}
+          className="flex items-center justify-center w-9 h-9 rounded-xl shrink-0"
+          style={{ backgroundColor: '#ffffff' }}
         >
-          B
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-icone.png" alt="Bombinhas Imóveis" className="w-5 h-5 object-contain" />
         </Link>
 
         <nav className="flex items-center gap-0.5 px-1 flex-1 justify-center sm:flex-initial">
