@@ -11,7 +11,7 @@ export default async function Home() {
       <h1 className="sr-only">Bombinhas Imóveis</h1>
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/hero-home.jpg" alt="Bombinhas" className="absolute inset-0 w-full h-full object-cover" />
+      <img src="/hero-bombinhas.jpg" alt="Bombinhas" className="absolute inset-0 w-full h-full object-cover" />
       <div
         className="absolute inset-0"
         style={{
