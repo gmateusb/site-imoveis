@@ -1,6 +1,7 @@
 import BotaoWhatsapp from '../../components/BotaoWhatsapp'
 import FormularioContato from '../../components/FormularioContato'
 import MiniHero from '../../components/MiniHero'
+import Footer from '../../components/Footer'
 
 export default function Sobre() {
   return (
@@ -13,6 +14,7 @@ export default function Sobre() {
           <FormularioContato titulo="Enviar mensagem" />
         </div>
       </div>
+      <Footer />
     </>
   )
 }

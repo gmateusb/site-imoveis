@@ -3,6 +3,7 @@ import { buscarImoveisPublicos, buscarCidadesDisponiveis, buscarTiposDisponiveis
 import CardImovel from '../../components/CardImovel'
 import FiltrosImoveisForm from '../../components/FiltrosImoveis'
 import MiniHero from '../../components/MiniHero'
+import Footer from '../../components/Footer'
 
 export const revalidate = 60
 
@@ -47,6 +48,7 @@ export default async function ListaImoveis({
         )}
         </div>
       </div>
+      <Footer />
     </>
   )
 }

@@ -6,6 +6,7 @@ import GaleriaImovel from '../../../components/GaleriaImovel'
 import VideoImovel from '../../../components/VideoImovel'
 import BotaoWhatsapp from '../../../components/BotaoWhatsapp'
 import FormularioContato from '../../../components/FormularioContato'
+import Footer from '../../../components/Footer'
 
 export const revalidate = 60
 
@@ -35,6 +36,7 @@ export default async function DetalheImovel({ params }: { params: Promise<{ id: 
   const mensagemWhatsapp = `Olá! Tenho interesse no imóvel "${imovel.nome}" (${imovel.codigo}).`
 
   return (
+    <>
     <div className="max-w-6xl mx-auto px-5 pt-28 pb-10 sm:pt-32">
       <Link href="/imoveis" className="inline-flex items-center gap-1.5 text-sm font-medium mb-6 hover:opacity-70 transition-opacity" style={{ color: '#6b6353' }}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -116,5 +118,7 @@ export default async function DetalheImovel({ params }: { params: Promise<{ id: 
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
