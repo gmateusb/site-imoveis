@@ -3,7 +3,8 @@ import BarraPesquisaHeader from './BarraPesquisaHeader'
 
 export default function Header() {
   return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center gap-3 px-3 w-full sm:w-auto">
+    <>
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex justify-center px-3 w-full sm:w-auto">
       <div
         className="flex items-center gap-1 p-1.5 rounded-2xl backdrop-blur-md w-full sm:w-auto"
         style={{ backgroundColor: 'rgba(21, 19, 15, 0.6)', border: '1px solid rgba(255,255,255,0.12)' }}
@@ -47,8 +48,11 @@ export default function Header() {
           Temporada
         </Link>
       </div>
-
-      <BarraPesquisaHeader />
     </header>
+
+    <div className="fixed top-4 z-50" style={{ left: 'calc(50% + 280px)' }}>
+      <BarraPesquisaHeader />
+    </div>
+    </>
   )
 }
