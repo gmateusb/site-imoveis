@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { buscarImoveisPublicos, buscarCidadesDisponiveis, buscarTiposDisponiveis } from '../../lib/imoveis'
 import CardImovel from '../../components/CardImovel'
 import FiltrosImoveisForm from '../../components/FiltrosImoveis'
+import MiniHero from '../../components/MiniHero'
 
 export const revalidate = 60
 
@@ -18,16 +19,17 @@ export default async function ListaImoveis({
   ])
 
   return (
-    <div className="max-w-6xl mx-auto px-5 py-10">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-6" style={{ color: '#1a1a1a' }}>
-        Imóveis disponíveis
-      </h1>
+    <>
+      <MiniHero titulo="Imóveis disponíveis" subtitulo="Compra, aluguel anual e temporada em Bombinhas." />
 
-      <Suspense fallback={null}>
-        <FiltrosImoveisForm cidades={cidades} tipos={tipos} />
-      </Suspense>
+      <div className="max-w-6xl mx-auto px-5 py-10">
+        <div className="rounded-2xl p-4 sm:p-5 mb-8" style={{ backgroundColor: 'var(--sand)', border: '1px solid #e5e0d5' }}>
+          <Suspense fallback={null}>
+            <FiltrosImoveisForm cidades={cidades} tipos={tipos} />
+          </Suspense>
+        </div>
 
-      <div className="mt-8">
+        <div>
         {erro ? (
           <p className="text-sm" style={{ color: '#c14444' }}>
             Erro ao carregar imóveis: {erro}
@@ -43,7 +45,8 @@ export default async function ListaImoveis({
             ))}
           </div>
         )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { buscarImovelPorId } from '../../../lib/imoveis'
 import { ROTULOS_DISPONIVEL, formatarLocalizacao } from '../../../lib/tipos'
@@ -34,20 +35,27 @@ export default async function DetalheImovel({ params }: { params: Promise<{ id: 
   const mensagemWhatsapp = `Olá! Tenho interesse no imóvel "${imovel.nome}" (${imovel.codigo}).`
 
   return (
-    <div className="max-w-6xl mx-auto px-5 py-10">
+    <div className="max-w-6xl mx-auto px-5 pt-28 pb-10 sm:pt-32">
+      <Link href="/imoveis" className="inline-flex items-center gap-1.5 text-sm font-medium mb-6 hover:opacity-70 transition-opacity" style={{ color: '#6b6353' }}>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 18l-6-6 6-6" />
+        </svg>
+        Voltar para imóveis
+      </Link>
+
       <div className="flex flex-wrap gap-1.5 mb-3">
         {imovel.disponivel_para.map((d) => (
           <span
             key={d}
             className="text-xs font-semibold px-2.5 py-1 rounded-full"
-            style={{ backgroundColor: '#1a1a1a', color: '#ffffff' }}
+            style={{ backgroundColor: 'var(--accent)', color: '#ffffff' }}
           >
             {ROTULOS_DISPONIVEL[d]}
           </span>
         ))}
       </div>
 
-      <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: '#1a1a1a' }}>
+      <h1 className="text-2xl sm:text-3xl font-extrabold" style={{ color: '#1a1a1a' }}>
         {imovel.nome}
       </h1>
       {localizacao && (

@@ -9,8 +9,8 @@ export default function CardImovel({ imovel }: { imovel: ImovelComMidia }) {
   return (
     <Link
       href={`/imoveis/${imovel.id}`}
-      className="group block rounded-2xl overflow-hidden transition-transform hover:-translate-y-0.5"
-      style={{ border: '1px solid #e5e0d5', backgroundColor: '#ffffff', boxShadow: '0 2px 10px rgba(0,0,0,0.07)' }}
+      className="group block rounded-3xl overflow-hidden transition-transform hover:-translate-y-1"
+      style={{ backgroundColor: '#ffffff', boxShadow: '0 8px 24px rgba(21,19,15,0.10)' }}
     >
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4 / 3', backgroundColor: '#f7f4ee' }}>
         {capa ? (
